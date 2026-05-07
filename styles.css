@@ -2614,14 +2614,16 @@ h1, h2, h3, h4, p { margin: 0; }
   scroll-snap-align: end;
   padding-top: 48px;
 }
-.gallery-page .footer-copy { color: rgba(255, 255, 255, 0.5); }
-.gallery-page .footer-legal a,
-.gallery-page .footer-social a {
-  color: rgba(255, 255, 255, 0.55);
+.gallery-footer .footer-inner {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 12px;
 }
-.gallery-page .footer-legal a:hover,
-.gallery-page .footer-social a:hover {
-  color: rgba(255, 255, 255, 0.95);
+.gallery-page .footer-copy {
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
 }
 .gallery-page .footer-brand-img {
   /* logo SVG ships in brand purple; on a dark canvas we want it white */
