@@ -2752,9 +2752,10 @@ h1, h2, h3, h4, p { margin: 0; }
   }
 }
 
-/* iPhone / small phones — tune focal points & meta without affecting tablet/desktop.
-   Override object-position per slide here only when needed; inherits tablet px values otherwise. */
-@media (max-width: 430px) {
+/* Narrow phones — tune focal points & meta without affecting tablet/desktop.
+   max-width 480px (not 430): several iPhones report 393–430 CSS px; Pro Max / Plus can land
+   just above 430 and would otherwise get only the ≤768px tablet crops, diverging from devtools. */
+@media (max-width: 480px) {
   .gallery-slide-meta-top {
     top: max(3.25dvh, env(safe-area-inset-top, 0px));
     left: max(3.25dvh, env(safe-area-inset-left, 0px));
@@ -2763,26 +2764,45 @@ h1, h2, h3, h4, p { margin: 0; }
     top: max(4.75dvh, calc(env(safe-area-inset-top, 0px) + 3.25dvh));
   }
 
-  /* Focal deltas vs ≤768px crops (+ = shift focal right along existing anchor axis). */
+  /* iPhone-only focal deltas vs tablet (≤768px) bases — sec 1–4 here only. */
   .gallery-slide[data-slide="0"] .gallery-slide-image,
   .gallery-slide[data-slide="0"] .gallery-slide-image-off {
-    object-position: calc(100% + 90px) 50%;   /* was +70px: +20 */
+    object-position: calc(100% + 80px) 50%;   /* sec1 iPhone: −10 vs prior +90 */
   }
   .gallery-slide[data-slide="1"] .gallery-slide-image,
   .gallery-slide[data-slide="1"] .gallery-slide-image-off {
-    object-position: calc(100% + 165px) 50%;   /* was +185px: −20 */
+    object-position: calc(100% + 137px) 50%;   /* sec2 iPhone: −8 vs prior +145 */
   }
   .gallery-slide[data-slide="2"] .gallery-slide-image,
   .gallery-slide[data-slide="2"] .gallery-slide-image-off {
-    object-position: calc(100% + 140px) 50%;   /* was +130px: +10 */
+    object-position: calc(100% + 140px) 50%;   /* tablet +130 +10 */
   }
   .gallery-slide[data-slide="3"] .gallery-slide-image,
   .gallery-slide[data-slide="3"] .gallery-slide-image-off {
-    object-position: calc(32% + 200px) 50%;    /* was +150px: +50 */
+    object-position: calc(32% + 55px) 50%;     /* sec4 iPhone: +10 vs prior +45 */
   }
   .gallery-slide[data-slide="4"] .gallery-slide-image,
   .gallery-slide[data-slide="4"] .gallery-slide-image-off {
     object-position: calc(32% + 35px) 50%;    /* was +85px on tablet: −50 on iPhone */
+  }
+}
+
+/* Phone landscape: width is often *above* 768px, so (max-width:768px) never matched and
+   min-width:769px per-slide % focal rules still applied — looked wrong. Short landscape
+   viewports (typical phone sideways ~390–430px tall) reset to default centered crop.
+   Specificity includes [data-slide] so this beats the desktop gallery focal block. */
+@media (orientation: landscape) and (max-height: 520px) {
+  .gallery-page .gallery-slide[data-slide="0"] .gallery-slide-image,
+  .gallery-page .gallery-slide[data-slide="0"] .gallery-slide-image-off,
+  .gallery-page .gallery-slide[data-slide="1"] .gallery-slide-image,
+  .gallery-page .gallery-slide[data-slide="1"] .gallery-slide-image-off,
+  .gallery-page .gallery-slide[data-slide="2"] .gallery-slide-image,
+  .gallery-page .gallery-slide[data-slide="2"] .gallery-slide-image-off,
+  .gallery-page .gallery-slide[data-slide="3"] .gallery-slide-image,
+  .gallery-page .gallery-slide[data-slide="3"] .gallery-slide-image-off,
+  .gallery-page .gallery-slide[data-slide="4"] .gallery-slide-image,
+  .gallery-page .gallery-slide[data-slide="4"] .gallery-slide-image-off {
+    object-position: center;
   }
 }
 
