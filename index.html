@@ -50,14 +50,19 @@
   </div>
 
   <!-- ============== GALLERY ============== -->
+  <!-- Asset filenames (slide-1…slide-5) do not match on-screen order:
+       first slide uses slide-2.jpg; second uses slide-3.jpg (Yellowstone);
+       third uses slide-4.jpg; fourth uses slide-1.jpg; fifth uses slide-5.jpg.
+       Edits to “slide 3” in the UI usually mean slide-4.jpg (third scroll stop).
+       GitHub Pages deploy adds ?v=<git-short-sha> to gallery JPEG URLs to bust caches. -->
   <main class="gallery-scroller" id="gallery">
 
     <!-- Slide 1 — Landman -->
     <article class="gallery-slide" data-slide="0" aria-label="Landman">
       <div class="gallery-slide-frame">
         <div class="gallery-slide-image-wrap" data-slide-image aria-hidden="true">
-          <img src="images/gallery/slide-2.jpg" alt="" class="gallery-slide-image" />
-          <img src="images/gallery/slide-2-off.jpg" alt="" class="gallery-slide-image gallery-slide-image-off" aria-hidden="true" />
+          <img src="images/gallery/slide-2.jpg?v=4bb8606" alt="" class="gallery-slide-image" />
+          <img src="images/gallery/slide-2-off.jpg?v=4bb8606" alt="" class="gallery-slide-image gallery-slide-image-off" aria-hidden="true" />
         </div>
         <div class="gallery-slide-vignette" aria-hidden="true"></div>
 
@@ -107,8 +112,8 @@
     <article class="gallery-slide" data-slide="1" aria-label="Yellowstone">
       <div class="gallery-slide-frame">
         <div class="gallery-slide-image-wrap" data-slide-image aria-hidden="true">
-          <img src="images/gallery/slide-3.jpg" alt="" class="gallery-slide-image" />
-          <img src="images/gallery/slide-3-off.jpg" alt="" class="gallery-slide-image gallery-slide-image-off" aria-hidden="true" />
+          <img src="images/gallery/slide-3.jpg?v=4bb8606" alt="" class="gallery-slide-image" />
+          <img src="images/gallery/slide-3-off.jpg?v=4bb8606" alt="" class="gallery-slide-image gallery-slide-image-off" aria-hidden="true" />
         </div>
         <div class="gallery-slide-vignette" aria-hidden="true"></div>
 
@@ -158,8 +163,8 @@
     <article class="gallery-slide" data-slide="2" aria-label="Lioness">
       <div class="gallery-slide-frame">
         <div class="gallery-slide-image-wrap" data-slide-image aria-hidden="true">
-          <img src="images/gallery/slide-4.jpg" alt="" class="gallery-slide-image" />
-          <img src="images/gallery/slide-4-off.jpg" alt="" class="gallery-slide-image gallery-slide-image-off" aria-hidden="true" />
+          <img src="images/gallery/slide-4.jpg?v=4bb8606" alt="" class="gallery-slide-image" />
+          <img src="images/gallery/slide-4-off.jpg?v=4bb8606" alt="" class="gallery-slide-image gallery-slide-image-off" aria-hidden="true" />
         </div>
         <div class="gallery-slide-vignette" aria-hidden="true"></div>
 
@@ -209,8 +214,8 @@
     <article class="gallery-slide" data-slide="3" aria-label="Tulsa King">
       <div class="gallery-slide-frame">
         <div class="gallery-slide-image-wrap" data-slide-image aria-hidden="true">
-          <img src="images/gallery/slide-1.jpg" alt="" class="gallery-slide-image" />
-          <img src="images/gallery/slide-1-off.jpg" alt="" class="gallery-slide-image gallery-slide-image-off" aria-hidden="true" />
+          <img src="images/gallery/slide-1.jpg?v=4bb8606" alt="" class="gallery-slide-image" />
+          <img src="images/gallery/slide-1-off.jpg?v=4bb8606" alt="" class="gallery-slide-image gallery-slide-image-off" aria-hidden="true" />
         </div>
         <div class="gallery-slide-vignette" aria-hidden="true"></div>
 
@@ -260,8 +265,8 @@
     <article class="gallery-slide" data-slide="4" aria-label="1923">
       <div class="gallery-slide-frame">
         <div class="gallery-slide-image-wrap" data-slide-image aria-hidden="true">
-          <img src="images/gallery/slide-5.jpg" alt="" class="gallery-slide-image" />
-          <img src="images/gallery/slide-5-off.jpg" alt="" class="gallery-slide-image gallery-slide-image-off" aria-hidden="true" />
+          <img src="images/gallery/slide-5.jpg?v=4bb8606" alt="" class="gallery-slide-image" />
+          <img src="images/gallery/slide-5-off.jpg?v=4bb8606" alt="" class="gallery-slide-image gallery-slide-image-off" aria-hidden="true" />
         </div>
         <div class="gallery-slide-vignette" aria-hidden="true"></div>
 
