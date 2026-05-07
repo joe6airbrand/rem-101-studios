@@ -2319,8 +2319,7 @@ h1, h2, h3, h4, p { margin: 0; }
    sign to the image's parallax so the visible offset between text and
    photograph is amplified. */
 .gallery-slide-meta-top,
-.gallery-slide-content,
-.gallery-slide-cta {
+.gallery-slide-content {
   transform: translateY(calc(var(--p, 0) * 28vh));
 }
 
@@ -2480,10 +2479,34 @@ h1, h2, h3, h4, p { margin: 0; }
   max-width: 16ch;
 }
 
-/* Bottom-right CTA pill */
-.gallery-slide-cta {
-  right: 6dvh;
-  bottom: 9dvh;
+/* On/Off control — sits under the Virtual 2D/3D pill in .gallery-slide-meta-top */
+.gallery-slide-meta-top .gallery-slide-cta.gallery-slide-onoff {
+  position: static;
+  align-self: flex-start;
+  margin-top: 4px;
+  height: auto;
+  min-height: 0;
+  padding: 6px 0;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+.gallery-slide-meta-top .gallery-slide-onoff:hover {
+  color: rgba(255, 255, 255, 0.98);
+  background: transparent;
+  border: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+.gallery-slide-meta-top .gallery-slide-onoff:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.45);
+  outline-offset: 4px;
 }
 
 /* Brand-removed reveal layer
@@ -2491,9 +2514,8 @@ h1, h2, h3, h4, p { margin: 0; }
    inherits all the same parallax / scale / blur transforms — no extra
    transform plumbing required. Hidden by default; the slide frame uses
    :has() to listen for the CTA's hover state and fade this layer in.
-   The button's text crossfade ("Toggle Off" → "Toggle On") is driven
-   by the existing letter-stagger system via data-stagger-hover; this
-   layer's fade is the visual companion to that text swap. */
+   The control label reads "On/Off"; hover fades this layer in over the
+   hero frame (letter stagger still applies to the label text). */
 .gallery-slide-image-off {
   opacity: 0;
   transition: opacity .45s cubic-bezier(.2, .8, .2, 1);
@@ -2512,7 +2534,7 @@ h1, h2, h3, h4, p { margin: 0; }
    properties), so the parallax tracks scroll continuously while the
    reveal fades in once when the slide becomes active. The per-block
    --delay staggers reveal across the eye's reading path:
-   year → title → quotes → CTA. */
+   year → title → quotes; On/Off reveals with its own delay under the badge. */
 [data-reveal] {
   opacity: 0;
   translate: 0 32px;        /* hidden offset, lifts on activate */
@@ -2643,7 +2665,6 @@ h1, h2, h3, h4, p { margin: 0; }
   .gallery-slide-credits { font-size: 8.5px; letter-spacing: 0.22em; }
   .gallery-slide-credits > div { gap: 8px; }
   .gallery-slide-quotes { display: none; }
-  .gallery-slide-cta { right: 4dvh; bottom: 4dvh; }
   .gallery-pagination { display: none; }
 }
 
