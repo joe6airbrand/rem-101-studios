@@ -2762,6 +2762,28 @@ h1, h2, h3, h4, p { margin: 0; }
   .gallery-slide[data-slide="0"] .gallery-slide-meta-top {
     top: max(4.75dvh, calc(env(safe-area-inset-top, 0px) + 3.25dvh));
   }
+
+  /* Focal deltas vs ≤768px crops (+ = shift focal right along existing anchor axis). */
+  .gallery-slide[data-slide="0"] .gallery-slide-image,
+  .gallery-slide[data-slide="0"] .gallery-slide-image-off {
+    object-position: calc(100% + 90px) 50%;   /* was +70px: +20 */
+  }
+  .gallery-slide[data-slide="1"] .gallery-slide-image,
+  .gallery-slide[data-slide="1"] .gallery-slide-image-off {
+    object-position: calc(100% + 165px) 50%;   /* was +185px: −20 */
+  }
+  .gallery-slide[data-slide="2"] .gallery-slide-image,
+  .gallery-slide[data-slide="2"] .gallery-slide-image-off {
+    object-position: calc(100% + 140px) 50%;   /* was +130px: +10 */
+  }
+  .gallery-slide[data-slide="3"] .gallery-slide-image,
+  .gallery-slide[data-slide="3"] .gallery-slide-image-off {
+    object-position: calc(32% + 200px) 50%;    /* was +150px: +50 */
+  }
+  .gallery-slide[data-slide="4"] .gallery-slide-image,
+  .gallery-slide[data-slide="4"] .gallery-slide-image-off {
+    object-position: calc(32% + 35px) 50%;    /* was +85px on tablet: −50 on iPhone */
+  }
 }
 
 /* Respect reduced-motion preference: keep snap, drop the blur reveals.
