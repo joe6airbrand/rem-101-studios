@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>In-Content Gallery — Rembrand</title>
+  <meta name="description" content="A reel of in-content brand placements — cinematic stills, snap-scroll between scenes, every frame a placement." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://use.typekit.net/psc7vjb.css">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="hero-variant-2 gallery-page is-loading">
+  <div class="top-bar" aria-hidden="true"></div>
+
+  <!-- ============== HEADER (Hero v2) ============== -->
+  <!-- Stripped down for the gallery: logo only, no nav links or
+       action buttons. The dropdown card and mobile toggle were also
+       removed since they had no triggers left to drive them. -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo" aria-label="Rembrand home">
+        <img src="images/logo.svg" alt="Rembrand" class="logo-img logo-img-default" />
+        <img src="images/logo-white.svg" alt="" class="logo-img logo-img-pill" aria-hidden="true" />
+      </a>
+    </div>
+  </header>
+
+  <!-- ============== INTRO LOADER ============== -->
+  <!-- Pure black overlay that holds while the first slide image preloads
+       and runs its in-blur-stretch reveal. Fades out via JS once that
+       reveal lands. The slide itself runs the actual cinematic in-effect
+       (filter: blur + scaleY + opacity), the loader just covers the gap. -->
+  <div class="gallery-loader" aria-hidden="true" data-gallery-loader>
+    <div class="gallery-loader-mark">
+      <img src="images/logo-white.svg" alt="" />
+    </div>
+    <div class="gallery-loader-line"><span></span></div>
+  </div>
+
+  <!-- ============== PARTNER CREDIT ============== -->
+  <!-- 101 Studios attribution, fixed below the v2 Rembrand logo pill.
+       Stays put as the gallery scrolls. Sits at z-index 30 — above
+       slide content (z-index 2) but below the floating header pill
+       (z-index 50) so the pill always wins if they overlap. -->
+  <div class="gallery-partner" aria-label="In partnership with 101 Studios">
+    <img src="images/icons/101-studios.png" alt="101 Studios" />
+  </div>
+
+  <!-- ============== GALLERY ============== -->
+  <main class="gallery-scroller" id="gallery">
+
+    <!-- Slide 1 — Landman -->
+    <article class="gallery-slide" data-slide="0" aria-label="Landman">
+      <div class="gallery-slide-frame">
+        <div class="gallery-slide-image-wrap" data-slide-image aria-hidden="true">
+          <img src="images/gallery/slide-2.jpg" alt="" class="gallery-slide-image" />
+          <img src="images/gallery/slide-2-off.jpg" alt="" class="gallery-slide-image gallery-slide-image-off" aria-hidden="true" />
+        </div>
+        <div class="gallery-slide-vignette" aria-hidden="true"></div>
+
+        <div class="gallery-slide-meta-top" data-reveal style="--delay:.05s">
+          <div class="gallery-slide-year">Brand</div>
+          <div class="gallery-slide-fest">Carhartt</div>
+          <div class="gallery-slide-badge">
+            <img src="images/icons/virtual-2d.svg" alt="" class="gallery-slide-badge-icon" aria-hidden="true" />
+            <span>Virtual 2D<span class="gallery-slide-badge-suffix">.ai</span></span>
+          </div>
+        </div>
+
+        <div class="gallery-slide-content" data-reveal style="--delay:.15s">
+          <div class="gallery-slide-eyebrow">TV Series</div>
+          <h2 class="gallery-slide-title">
+            <span>Landman</span>
+          </h2>
+          <dl class="gallery-slide-credits">
+            <div><dt>Director</dt><dd>Taylor Sheridan</dd></div>
+            <div><dt>Category</dt><dd>Contemporary Western Drama</dd></div>
+          </dl>
+        </div>
+
+        <aside class="gallery-slide-quotes" data-reveal style="--delay:.25s">
+          <figure>
+            <span class="gallery-stars" aria-hidden="true">★★★★★</span>
+            <figcaption>Variety</figcaption>
+            <blockquote>“Evocative sense of place.”</blockquote>
+          </figure>
+          <figure>
+            <span class="gallery-stars" aria-hidden="true">★★★★★</span>
+            <figcaption>The Guardian</figcaption>
+            <blockquote>“Gritty... rich new fuel.”</blockquote>
+          </figure>
+          <figure>
+            <span class="gallery-stars" aria-hidden="true">★★★★★</span>
+            <figcaption>Entertainment Weekly</figcaption>
+            <blockquote>“Timely and provocative.”</blockquote>
+          </figure>
+        </aside>
+
+        <a href="#" class="gallery-slide-cta btn btn-stroke-light" data-reveal style="--delay:.35s" data-stagger-text>Toggle</a>
+      </div>
+    </article>
+
+    <!-- Slide 2 — Yellowstone -->
+    <article class="gallery-slide" data-slide="1" aria-label="Yellowstone">
+      <div class="gallery-slide-frame">
+        <div class="gallery-slide-image-wrap" data-slide-image aria-hidden="true">
+          <img src="images/gallery/slide-3.jpg" alt="" class="gallery-slide-image" />
+          <img src="images/gallery/slide-3-off.jpg" alt="" class="gallery-slide-image gallery-slide-image-off" aria-hidden="true" />
+        </div>
+        <div class="gallery-slide-vignette" aria-hidden="true"></div>
+
+        <div class="gallery-slide-meta-top" data-reveal style="--delay:.05s">
+          <div class="gallery-slide-year">Brand</div>
+          <div class="gallery-slide-fest">Dove</div>
+          <div class="gallery-slide-badge">
+            <img src="images/icons/virtual-3d.svg" alt="" class="gallery-slide-badge-icon" aria-hidden="true" />
+            <span>Virtual 3D<span class="gallery-slide-badge-suffix">.ai</span></span>
+          </div>
+        </div>
+
+        <div class="gallery-slide-content" data-reveal style="--delay:.15s">
+          <div class="gallery-slide-eyebrow">TV Series</div>
+          <h2 class="gallery-slide-title">
+            <span>Yellowstone</span>
+          </h2>
+          <dl class="gallery-slide-credits">
+            <div><dt>Director</dt><dd>Taylor Sheridan</dd></div>
+            <div><dt>Category</dt><dd>Western Epic</dd></div>
+          </dl>
+        </div>
+
+        <aside class="gallery-slide-quotes" data-reveal style="--delay:.25s">
+          <figure>
+            <span class="gallery-stars" aria-hidden="true">★★★★★</span>
+            <figcaption>Variety</figcaption>
+            <blockquote>“Soapy violence with contemplative cowboy poetry.”</blockquote>
+          </figure>
+          <figure>
+            <span class="gallery-stars" aria-hidden="true">★★★★★</span>
+            <figcaption>Metacritic</figcaption>
+            <blockquote>“Compulsively watchable.”</blockquote>
+          </figure>
+          <figure>
+            <span class="gallery-stars" aria-hidden="true">★★★★★</span>
+            <figcaption>Buzzfeed News</figcaption>
+            <blockquote>“America's most important drama.”</blockquote>
+          </figure>
+        </aside>
+
+        <a href="#" class="gallery-slide-cta btn btn-stroke-light" data-reveal style="--delay:.35s" data-stagger-text>Toggle</a>
+      </div>
+    </article>
+
+    <!-- Slide 3 — Lioness -->
+    <article class="gallery-slide" data-slide="2" aria-label="Lioness">
+      <div class="gallery-slide-frame">
+        <div class="gallery-slide-image-wrap" data-slide-image aria-hidden="true">
+          <img src="images/gallery/slide-4.jpg" alt="" class="gallery-slide-image" />
+          <img src="images/gallery/slide-4-off.jpg" alt="" class="gallery-slide-image gallery-slide-image-off" aria-hidden="true" />
+        </div>
+        <div class="gallery-slide-vignette" aria-hidden="true"></div>
+
+        <div class="gallery-slide-meta-top" data-reveal style="--delay:.05s">
+          <div class="gallery-slide-year">Brand</div>
+          <div class="gallery-slide-fest">Fiji Water</div>
+          <div class="gallery-slide-badge">
+            <img src="images/icons/virtual-3d.svg" alt="" class="gallery-slide-badge-icon" aria-hidden="true" />
+            <span>Virtual 3D<span class="gallery-slide-badge-suffix">.ai</span></span>
+          </div>
+        </div>
+
+        <div class="gallery-slide-content" data-reveal style="--delay:.15s">
+          <div class="gallery-slide-eyebrow">TV Series</div>
+          <h2 class="gallery-slide-title">
+            <span>Lioness</span>
+          </h2>
+          <dl class="gallery-slide-credits">
+            <div><dt>Director</dt><dd>Taylor Sheridan</dd></div>
+            <div><dt>Category</dt><dd>Spy Action Thriller</dd></div>
+          </dl>
+        </div>
+
+        <aside class="gallery-slide-quotes" data-reveal style="--delay:.25s">
+          <figure>
+            <span class="gallery-stars" aria-hidden="true">★★★★★</span>
+            <figcaption>New York Times</figcaption>
+            <blockquote>“Moody, suspenseful, textured”</blockquote>
+          </figure>
+          <figure>
+            <span class="gallery-stars" aria-hidden="true">★★★★★</span>
+            <figcaption>IndieWire</figcaption>
+            <blockquote>“Extra dynamism and energy.”</blockquote>
+          </figure>
+          <figure>
+            <span class="gallery-stars" aria-hidden="true">★★★★★</span>
+            <figcaption>FandomWire</figcaption>
+            <blockquote>“The stakes are higher, the tension is palpable.”</blockquote>
+          </figure>
+        </aside>
+
+        <a href="#" class="gallery-slide-cta btn btn-stroke-light" data-reveal style="--delay:.35s" data-stagger-text>Toggle</a>
+      </div>
+    </article>
+
+    <!-- Slide 4 — Tulsa King -->
+    <article class="gallery-slide" data-slide="3" aria-label="Tulsa King">
+      <div class="gallery-slide-frame">
+        <div class="gallery-slide-image-wrap" data-slide-image aria-hidden="true">
+          <img src="images/gallery/slide-1.jpg" alt="" class="gallery-slide-image" />
+          <img src="images/gallery/slide-1-off.jpg" alt="" class="gallery-slide-image gallery-slide-image-off" aria-hidden="true" />
+        </div>
+        <div class="gallery-slide-vignette" aria-hidden="true"></div>
+
+        <div class="gallery-slide-meta-top" data-reveal style="--delay:.05s">
+          <div class="gallery-slide-year">Brand</div>
+          <div class="gallery-slide-fest">Coors Light</div>
+          <div class="gallery-slide-badge">
+            <img src="images/icons/virtual-3d.svg" alt="" class="gallery-slide-badge-icon" aria-hidden="true" />
+            <span>Virtual 3D<span class="gallery-slide-badge-suffix">.ai</span></span>
+          </div>
+        </div>
+
+        <div class="gallery-slide-content" data-reveal style="--delay:.15s">
+          <div class="gallery-slide-eyebrow">TV Series</div>
+          <h2 class="gallery-slide-title">
+            <span>Tulsa King</span>
+          </h2>
+          <dl class="gallery-slide-credits">
+            <div><dt>Director</dt><dd>Taylor Sheridan</dd></div>
+            <div><dt>Category</dt><dd>Gangster Action</dd></div>
+          </dl>
+        </div>
+
+        <aside class="gallery-slide-quotes" data-reveal style="--delay:.25s">
+          <figure>
+            <span class="gallery-stars" aria-hidden="true">★★★★★</span>
+            <figcaption>Nerd Initiative</figcaption>
+            <blockquote>“Some of the best work of Stallone's career.”</blockquote>
+          </figure>
+          <figure>
+            <span class="gallery-stars" aria-hidden="true">★★★★★</span>
+            <figcaption>FandomWire</figcaption>
+            <blockquote>“Frighteningly funny, frequently thrilling.”</blockquote>
+          </figure>
+          <figure>
+            <span class="gallery-stars" aria-hidden="true">★★★★★</span>
+            <figcaption>Empire</figcaption>
+            <blockquote>“A royally good time.”</blockquote>
+          </figure>
+        </aside>
+
+        <a href="#" class="gallery-slide-cta btn btn-stroke-light" data-reveal style="--delay:.35s" data-stagger-text>Toggle</a>
+      </div>
+    </article>
+
+    <!-- Slide 5 — Mayor of Kingstown -->
+    <article class="gallery-slide" data-slide="4" aria-label="1923">
+      <div class="gallery-slide-frame">
+        <div class="gallery-slide-image-wrap" data-slide-image aria-hidden="true">
+          <img src="images/gallery/slide-5.jpg" alt="" class="gallery-slide-image" />
+          <img src="images/gallery/slide-5-off.jpg" alt="" class="gallery-slide-image gallery-slide-image-off" aria-hidden="true" />
+        </div>
+        <div class="gallery-slide-vignette" aria-hidden="true"></div>
+
+        <div class="gallery-slide-meta-top" data-reveal style="--delay:.05s">
+          <div class="gallery-slide-year">Brand</div>
+          <div class="gallery-slide-fest">Geico</div>
+          <div class="gallery-slide-badge">
+            <img src="images/icons/virtual-2d.svg" alt="" class="gallery-slide-badge-icon" aria-hidden="true" />
+            <span>Virtual 2D<span class="gallery-slide-badge-suffix">.ai</span></span>
+          </div>
+        </div>
+
+        <div class="gallery-slide-content" data-reveal style="--delay:.15s">
+          <div class="gallery-slide-eyebrow">TV Series</div>
+          <h2 class="gallery-slide-title">
+            <span>Mayor of Kingstown</span>
+          </h2>
+          <dl class="gallery-slide-credits">
+            <div><dt>Director</dt><dd>Taylor Sheridan</dd></div>
+            <div><dt>Category</dt><dd>Psychological Drama</dd></div>
+          </dl>
+        </div>
+
+        <aside class="gallery-slide-quotes" data-reveal style="--delay:.25s">
+          <figure>
+            <span class="gallery-stars" aria-hidden="true">★★★★★</span>
+            <figcaption>IMDb</figcaption>
+            <blockquote>“Great TV writing is still alive and well.”</blockquote>
+          </figure>
+          <figure>
+            <span class="gallery-stars" aria-hidden="true">★★★★★</span>
+            <figcaption>Rotten Tomatoes</figcaption>
+            <blockquote>“An engrossing crime melodrama.”</blockquote>
+          </figure>
+          <figure>
+            <span class="gallery-stars" aria-hidden="true">★★★★★</span>
+            <figcaption>The Hollywood Reporter</figcaption>
+            <blockquote>“Unexpectedly outstanding.”</blockquote>
+          </figure>
+        </aside>
+
+        <a href="#" class="gallery-slide-cta btn btn-stroke-light" data-reveal style="--delay:.35s" data-stagger-text>Toggle</a>
+      </div>
+    </article>
+  </main>
+
+  <!-- right-edge dot pagination -->
+  <nav class="gallery-pagination" aria-label="Slides">
+    <ul data-pagination></ul>
+  </nav>
+
+  <!-- ============== FOOTER ============== -->
+  <!-- Lives outside the snap context so the page exits the gallery
+       cleanly into a normal scrolling footer. -->
+  <footer class="site-footer gallery-footer">
+    <div class="container footer-inner">
+      <a href="index.html" class="footer-brand" aria-label="Rembrand home">
+        <img src="images/logo.svg" alt="Rembrand" class="footer-brand-img" />
+      </a>
+      <p class="footer-copy">&copy; 2026 Rembrand, Inc. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#" data-stagger-text>Privacy</a>
+        <a href="#" data-stagger-text>Terms</a>
+        <a href="#" data-stagger-text>Contact</a>
+      </div>
+      <nav class="footer-social" aria-label="Social media">
+        <a href="#" data-stagger-text rel="noopener" target="_blank">LinkedIn</a>
+        <a href="#" data-stagger-text rel="noopener" target="_blank">Instagram</a>
+        <a href="#" data-stagger-text rel="noopener" target="_blank">X</a>
+        <a href="#" data-stagger-text rel="noopener" target="_blank">Facebook</a>
+        <a href="#" data-stagger-text rel="noopener" target="_blank">TikTok</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+  // ============== gallery: loader + parallax + reveal ==============
+  // Inline controller for the cinema reel. Three pieces:
+  //   1. Intro loader — black overlay + first-slide blur-stretch in.
+  //   2. Per-slide parallax — every frame we push a `--p` (progress)
+  //      custom property to each slide. CSS turns that into a small
+  //      translateY on the image (slow / lag) and a larger translateY
+  //      on the text overlays (lead). Outgoing text overshoots the
+  //      photograph; incoming text holds back until the slide settles.
+  //   3. Activation — IntersectionObserver flips .is-active when a
+  //      slide is >55% on screen, which fires the per-element reveal
+  //      stagger (per-line title, per-figure quotes, etc.).
+  (function () {
+    const body = document.body;
+    const slides = Array.from(document.querySelectorAll(".gallery-slide"));
+    const paginationList = document.querySelector("[data-pagination]");
+    const loader = document.querySelector("[data-gallery-loader]");
+
+    // -- Build dot pagination ----------------------------------------
+    // Click jumps to the same center-aligned scroll target that
+    // snapToNearest uses, run through the same scrollToY tween. This
+    // matters: scrollIntoView({ block: "start" }) here would land at
+    // the top of the slide, then the scrollend backstop would
+    // immediately re-tween to the center — that two-step correction
+    // reads as an overshoot. Going straight to the snap target via
+    // the same tween + setting isProgrammatic skips the backstop and
+    // feels identical to a wheel-driven snap.
+    slides.forEach((slide, i) => {
+      const li = document.createElement("li");
+      const button = document.createElement("button");
+      button.type = "button";
+      button.setAttribute("aria-label", `Go to slide ${i + 1}`);
+      button.dataset.target = i;
+      button.addEventListener("click", () => {
+        const vh = window.innerHeight;
+        const maxScroll = document.documentElement.scrollHeight - vh;
+        const rawTarget = slide.offsetTop + slide.offsetHeight / 2 - vh / 2;
+        const target = Math.max(0, Math.min(maxScroll, rawTarget));
+        isProgrammatic = true;
+        scrollToY(target, () => { isProgrammatic = false; });
+      });
+      li.appendChild(button);
+      paginationList.appendChild(li);
+    });
+    const dots = Array.from(paginationList.querySelectorAll("button"));
+
+    // -- Activation via IntersectionObserver -------------------------
+    // 55% threshold matches "incoming content stays hidden behind a
+    // blurred veil until the frame is half in" — the reveal fires
+    // once the user has committed past the snap midpoint.
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const idx = slides.indexOf(entry.target);
+            slides.forEach((s) => s.classList.remove("is-active"));
+            entry.target.classList.add("is-active");
+            dots.forEach((d, di) => d.classList.toggle("is-active", di === idx));
+          }
+        });
+      },
+      { threshold: 0.55 }
+    );
+    slides.forEach((s) => io.observe(s));
+
+    // -- Parallax: rAF loop, push --p to each slide ------------------
+    // Progress is signed:
+    //   p = 0   : slide center sits at viewport center (rest)
+    //   p = -1  : slide center has left through the top
+    //   p = +1  : slide center is one viewport below
+    // CSS turns p into translateY on the OVERSIZED image wrapper
+    // (.gallery-slide-image-wrap) — the wrapper is 150% of frame
+    // height, so as it pans through the frame's overflow:hidden the
+    // visible portion of the image shifts like film moving through a
+    // projector gate. Content overlays use --p to lead the scroll
+    // (outgoing overshoots, incoming holds back). Clamp ±0.7 so
+    // off-screen slides don't push their text ridiculously far.
+    let raf = 0;
+    function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
+    function updateParallax() {
+      raf = 0;
+      const vh = window.innerHeight;
+      for (const slide of slides) {
+        const rect = slide.getBoundingClientRect();
+        const center = rect.top + rect.height / 2;
+        const p = clamp((center - vh / 2) / vh, -0.7, 0.7);
+        slide.style.setProperty("--p", p.toFixed(3));
+      }
+    }
+    function scheduleParallax() {
+      if (!raf) raf = requestAnimationFrame(updateParallax);
+    }
+    window.addEventListener("scroll", scheduleParallax, { passive: true });
+    window.addEventListener("resize", scheduleParallax);
+    updateParallax(); // initial paint
+
+    // ====== SNAP TIMING (BEGIN — easy revert section) ===============
+    // Custom rAF tween for snap-to-nearest. Replaces the previous
+    // scrollIntoView({ behavior: "smooth" }) so we own the duration
+    // and easing instead of inheriting whatever the browser does.
+    //
+    // To revert to native browser smooth-scroll:
+    //   1. Change `scroll-snap-type: y proximity` back to `mandatory`
+    //      in styles.css (.gallery-page rule).
+    //   2. Replace the scrollToY() call inside snapToNearest with:
+    //        nearest.scrollIntoView({ behavior: "smooth", block: "start" });
+    //   3. (Optional) delete this whole BEGIN/END block.
+    // -----------------------------------------------------------------
+    const SNAP_DURATION = 700;                          // ms — try 450 (snappy), 900 (slow)
+    const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3); // try easeOutQuart, easeInOutCubic, etc.
+
+    let cancelTween = null;
+    function scrollToY(target, onDone) {
+      if (cancelTween) cancelTween();
+      const start = window.scrollY;
+      const delta = target - start;
+      if (Math.abs(delta) < 1) { onDone && onDone(); return; }
+      const t0 = performance.now();
+      let cancelled = false;
+      // Fire onDone on cancel too — otherwise the snapToNearest caller
+      // never releases its isProgrammatic lock and every future snap
+      // becomes a no-op (this is the "scroll back to top doesn't snap"
+      // bug). One onDone call is guaranteed per scrollToY invocation.
+      cancelTween = () => {
+        if (cancelled) return;
+        cancelled = true;
+        cancelTween = null;
+        onDone && onDone();
+      };
+      function step(now) {
+        if (cancelled) return;
+        const t = Math.min(1, (now - t0) / SNAP_DURATION);
+        window.scrollTo(0, start + delta * easeOutCubic(t));
+        if (t < 1) requestAnimationFrame(step);
+        else { cancelTween = null; onDone && onDone(); }
+      }
+      requestAnimationFrame(step);
+    }
+
+    // Cancel the tween if the user actively scrolls — keeps the page
+    // responsive instead of forcing them through the animation.
+    ["wheel", "touchstart", "keydown"].forEach((evt) => {
+      window.addEventListener(evt, () => {
+        if (cancelTween) cancelTween();
+      }, { passive: true });
+    });
+    // ====== SNAP TIMING (END) =======================================
+
+    // -- Backstop snap: pull to nearest slide when scroll settles ----
+    // CSS scroll-snap (proximity) is the no-cost safety net. This
+    // handler catches the cases where the user stops between slides —
+    // scrollbar drag, keyboard PageDown, mid-flick interruption — and
+    // pulls the page to the nearest slide via scrollToY() above. Uses
+    // the modern `scrollend` event (Chrome / Edge / Firefox 2023+,
+    // Safari 18.2+) and falls back to a debounced scroll timer for
+    // older Safari. The isProgrammatic flag prevents a feedback loop
+    // on the smooth-scroll we kick off.
+    let isProgrammatic = false;
+    function snapToNearest() {
+      if (isProgrammatic) return;
+      const vh = window.innerHeight;
+      const viewCenter = window.scrollY + vh / 2;
+      let nearest = slides[0], best = Infinity;
+      for (const s of slides) {
+        const c = s.offsetTop + s.offsetHeight / 2;
+        const d = Math.abs(c - viewCenter);
+        if (d < best) { best = d; nearest = s; }
+      }
+      // CSS snap-align is `center`, so the snap target is the scrollY
+      // that puts the slide's center at viewport center, not its top.
+      // Clamped to [0, max] so the first/last slides land cleanly at
+      // the page boundaries instead of trying to scroll past them.
+      const maxScroll = document.documentElement.scrollHeight - vh;
+      const rawTarget = nearest.offsetTop + nearest.offsetHeight / 2 - vh / 2;
+      const target = Math.max(0, Math.min(maxScroll, rawTarget));
+      if (Math.abs(window.scrollY - target) <= 4) return;
+      isProgrammatic = true;
+      scrollToY(target, () => { isProgrammatic = false; });
+    }
+    if ("onscrollend" in window) {
+      window.addEventListener("scrollend", snapToNearest);
+    } else {
+      let t;
+      window.addEventListener("scroll", () => {
+        clearTimeout(t);
+        t = setTimeout(snapToNearest, 140);
+      }, { passive: true });
+    }
+
+    // -- Loader: fades out once first slide image is decoded ---------
+    // Wait for decode() (or a 1.4s safety timeout, whichever comes
+    // first), give the in-blur reveal ~700ms to play, then drop
+    // .is-loading. CSS .gallery-page.is-loading drives the first
+    // slide's blur-stretch entry.
+    function dismissLoader() {
+      if (!body.classList.contains("is-loading")) return;
+      body.classList.remove("is-loading");
+      if (slides[0]) {
+        slides[0].classList.add("is-active");
+        if (dots[0]) dots[0].classList.add("is-active");
+      }
+      loader.classList.add("is-done");
+      setTimeout(() => loader.setAttribute("hidden", ""), 700);
+    }
+
+    const firstImg = slides[0]?.querySelector(".gallery-slide-image");
+    const safety = setTimeout(dismissLoader, 1400);
+    if (firstImg) {
+      const ready = firstImg.complete
+        ? Promise.resolve()
+        : firstImg.decode().catch(() => {});
+      Promise.resolve(ready).then(() => {
+        setTimeout(() => {
+          clearTimeout(safety);
+          dismissLoader();
+        }, 700);
+      });
+    } else {
+      dismissLoader();
+    }
+  })();
+  </script>
+</body>
+</html>
