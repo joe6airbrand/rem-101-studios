@@ -2555,10 +2555,18 @@ h1, h2, h3, h4, p { margin: 0; }
   transition: opacity .45s cubic-bezier(.2, .8, .2, 1);
   pointer-events: none;
 }
-.gallery-slide-frame:has(.gallery-slide-onoff:hover) .gallery-slide-image-off,
-.gallery-slide-frame:has(.gallery-slide-onoff:focus-visible) .gallery-slide-image-off,
+/* Tap-toggle uses .is-brand-off-active only. :hover rules are scoped so iOS
+   Safari’s sticky “hover” after tap cannot keep the off-layer visible when
+   the class is cleared (otherwise the second tap appears broken). */
 .gallery-slide-frame.is-brand-off-active .gallery-slide-image-off {
   opacity: 1;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .gallery-slide-frame:has(.gallery-slide-onoff:hover) .gallery-slide-image-off,
+  .gallery-slide-frame:has(.gallery-slide-onoff:focus-visible) .gallery-slide-image-off {
+    opacity: 1;
+  }
 }
 
 /* ---------- Reveal animation on each text block ---------- */
