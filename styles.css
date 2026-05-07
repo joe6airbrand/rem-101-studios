@@ -2265,31 +2265,36 @@ h1, h2, h3, h4, p { margin: 0; }
   will-change: transform, scale, filter;
 }
 
-/* Per-slide focal points for object-fit:cover (horizontal = anchor within image). */
-/* Section 1: 70px right of full-right anchor */
-.gallery-slide[data-slide="0"] .gallery-slide-image,
-.gallery-slide[data-slide="0"] .gallery-slide-image-off {
-  object-position: calc(100% + 70px) 50%;
-}
-/* Section 2: 185px right of full-right anchor */
-.gallery-slide[data-slide="1"] .gallery-slide-image,
-.gallery-slide[data-slide="1"] .gallery-slide-image-off {
-  object-position: calc(100% + 185px) 50%;
-}
-/* Section 3: 130px right of full-right anchor */
-.gallery-slide[data-slide="2"] .gallery-slide-image,
-.gallery-slide[data-slide="2"] .gallery-slide-image-off {
-  object-position: calc(100% + 130px) 50%;
-}
-/* Section 4: 32% anchor, +150px (75px right of prior +75px) */
-.gallery-slide[data-slide="3"] .gallery-slide-image,
-.gallery-slide[data-slide="3"] .gallery-slide-image-off {
-  object-position: calc(32% + 150px) 50%;
-}
-/* Section 5: 32% anchor; +85px */
-.gallery-slide[data-slide="4"] .gallery-slide-image,
-.gallery-slide[data-slide="4"] .gallery-slide-image-off {
-  object-position: calc(32% + 85px) 50%;
+/* ----- Per-slide focal points: desktop vs narrow viewports -----
+   Aggressive calc(100% + Npx) reads well on phone width but skews badly on
+   wide monitors. Desktop uses moderate % anchors; ≤768px keeps tuned px. */
+
+@media (min-width: 769px) {
+  .gallery-slide[data-slide="0"] .gallery-slide-image,
+  .gallery-slide[data-slide="0"] .gallery-slide-image-off {
+    object-position: 88% 50%;
+  }
+  .gallery-slide[data-slide="1"] .gallery-slide-image,
+  .gallery-slide[data-slide="1"] .gallery-slide-image-off {
+    object-position: 92% 50%;
+  }
+  .gallery-slide[data-slide="2"] .gallery-slide-image,
+  .gallery-slide[data-slide="2"] .gallery-slide-image-off {
+    object-position: 88% 50%;
+  }
+  .gallery-slide[data-slide="3"] .gallery-slide-image,
+  .gallery-slide[data-slide="3"] .gallery-slide-image-off {
+    object-position: 38% 50%;
+  }
+  .gallery-slide[data-slide="4"] .gallery-slide-image,
+  .gallery-slide[data-slide="4"] .gallery-slide-image-off {
+    object-position: 32% 50%;
+  }
+
+  /* First slide: meta column sat visually high vs other slides after tight crops */
+  .gallery-slide[data-slide="0"] .gallery-slide-meta-top {
+    top: 7.5dvh;
+  }
 }
 
 /* Inactive slides hold blur + a touch of scale to feel pushed back.
@@ -2698,10 +2703,36 @@ h1, h2, h3, h4, p { margin: 0; }
 
 /* ---------- Mobile / responsive ---------- */
 @media (max-width: 768px) {
+  /* Pixel-tuned crops on narrow viewports (desktop uses % only, above). */
+  .gallery-slide[data-slide="0"] .gallery-slide-image,
+  .gallery-slide[data-slide="0"] .gallery-slide-image-off {
+    object-position: calc(100% + 70px) 50%;
+  }
+  .gallery-slide[data-slide="1"] .gallery-slide-image,
+  .gallery-slide[data-slide="1"] .gallery-slide-image-off {
+    object-position: calc(100% + 185px) 50%;
+  }
+  .gallery-slide[data-slide="2"] .gallery-slide-image,
+  .gallery-slide[data-slide="2"] .gallery-slide-image-off {
+    object-position: calc(100% + 130px) 50%;
+  }
+  .gallery-slide[data-slide="3"] .gallery-slide-image,
+  .gallery-slide[data-slide="3"] .gallery-slide-image-off {
+    object-position: calc(32% + 150px) 50%;
+  }
+  .gallery-slide[data-slide="4"] .gallery-slide-image,
+  .gallery-slide[data-slide="4"] .gallery-slide-image-off {
+    object-position: calc(32% + 85px) 50%;
+  }
+
   /* Mobile: same 80dvh slide / 72dvh frame proportions as desktop. */
   .gallery-slide { height: 80dvh; padding: 2dvh 12px; }
   .gallery-slide-frame { max-height: 72dvh; border-radius: 12px; }
   .gallery-slide-meta-top { top: 4dvh; left: 4dvh; gap: 6px; max-width: calc(100% - 8dvh); }
+  /* Align first-slide Brand … On/Off block with the rest (was visually high vs slides 2–5). */
+  .gallery-slide[data-slide="0"] .gallery-slide-meta-top {
+    top: 5.25dvh;
+  }
   .gallery-slide-content { left: 4dvh; bottom: 6dvh; gap: 12px; }
   .gallery-slide-eyebrow { letter-spacing: 0.28em; }
   .gallery-slide-title { font-size: clamp(1.5rem, 5.5dvh, 2.4rem); }
@@ -2718,6 +2749,18 @@ h1, h2, h3, h4, p { margin: 0; }
     align-self: stretch;
     width: fit-content;
     max-width: 100%;
+  }
+}
+
+/* iPhone / small phones — tune focal points & meta without affecting tablet/desktop.
+   Override object-position per slide here only when needed; inherits tablet px values otherwise. */
+@media (max-width: 430px) {
+  .gallery-slide-meta-top {
+    top: max(3.25dvh, env(safe-area-inset-top, 0px));
+    left: max(3.25dvh, env(safe-area-inset-left, 0px));
+  }
+  .gallery-slide[data-slide="0"] .gallery-slide-meta-top {
+    top: max(4.75dvh, calc(env(safe-area-inset-top, 0px) + 3.25dvh));
   }
 }
 
